@@ -30,7 +30,15 @@ Cenário: Tentar login com usuário inexistente
   Então eu devo ver a mensagem de erro "Usuário não encontrado. Por favor, registre-se."
 
 Esquema do Cenário: Fazer login com múltiplos conjuntos de credenciais
-    Exemplos:
-    | email                  | senha            |
-    | teste2024@email.com    | SenhaSegura123   |
-    | teste2025@email.com    | OutraSenha456    |
+  Dado que eu acesso a página de login da EBAC-SHOP
+  Quando eu preencho o campo "username" com "<email>"
+  E preencho o campo "password" com "<senha>"
+  E clico no botão de "login"
+  Então eu devo ver a mensagem "<mensagem>"
+
+     Exemplos:
+    | email                  | senha            | mensagem                          |
+    | teste2024@email.com    | SenhaSegura123   | Bem-vindo, teste2024!             |
+    | teste2025@email.com    | OutraSenha456    | Dados inválidos. Tente novamente. |
+    |                        | SenhaSegura123   | Por favor, preencha o campo email.|
+    | teste2024@email.com    |                  | Por favor, preencha o campo senha.|

@@ -7,54 +7,30 @@ Contexto:
     Dado que estou na página de cadastro
 
 Cenário: cadastro com dados válidos
-Quando preencho o campo "Nome" com "Lucas"
-E preencho o campo "Sobrenome" com "Andrade"
-E preencho o campo "País" com "Brasil"
-E preencho o campo "Endereço" com "Rua das Flores, 123"
-E preencho o campo "Cidade" com "São Paulo"
-E preencho o campo "CEP" com "01234-567"
-E preencho o campo "Telefone" com "11912345678"
-E preencho o campo "Email" com "lucas.andrade@email.com"
+Quando preencho todos os campos obrigatórios com dados válidos
 E clico em "Finalizar Cadastro"
 Então devo ver uma mensagem de confirmação que diz "Cadastro realizado com sucesso"
 
 Cenário: cadastro com dados inválidos
-Quando preencho o campo "Nome" com ""
-E preencho o campo "Sobrenome" com "Andrade"
-E preencho o campo "País" com "Brasil"
-E preencho o campo "Endereço" com "Rua das Flores, 123"
-E preencho o campo "Cidade" com "São Paulo"
-E preencho o campo "CEP" com "01234-567"
-E preencho o campo "Telefone" com "11912345678"
-E preencho o campo "Email" com "lucas.andrade@email.com"
+Quando preencho os campos obrigatórios
+E preencho o campo "Telefone" com "11912AB678"
 E clico em "Finalizar Cadastro"
-Então devo ver uma mensagem de erro que diz "Por favor, preencha todos os campos obrigatórios"
+Então devo ver uma mensagem de erro que diz "Por favor, preencha todos os campos obrigatórios corretamente"
 
 Cenário: cadastro com email inválido
-Quando preencho o campo "Nome" com "Lucas"
-E preencho o campo "Sobrenome" com "Andrade"
-E preencho o campo "País" com "Brasil"
-E preencho o campo "Endereço" com "Rua das Flores, 123"
-E preencho o campo "Cidade" com "São Paulo"
-E preencho o campo "CEP" com "01234-567"
-E preencho o campo "Telefone" com "11912345678"
+Quando preencho os campos obrigatórios
 E preencho o campo "Email" com "lucas.andradeemail.com"
 E clico em "Finalizar Cadastro"
 Então devo ver uma mensagem de erro que diz "Email inválido"
 
 Cenário: cadastro com campos vazios
-Quando preencho o campo "Nome" com ""
-E preencho o campo "Sobrenome" com ""
-E preencho o campo "País" com ""
-E preencho o campo "Endereço" com ""
-E preencho o campo "Cidade" com ""
-E preencho o campo "CEP" com ""
-E preencho o campo "Telefone" com ""
-E preencho o campo "Email" com ""
+Quando deixar de preencher algum campo obrigatório marcado com asterisco
 E clico em "Finalizar Cadastro"
 Então devo ver uma mensagem de erro que diz "Por favor, preencha todos os campos obrigatórios"
 
 Esquema do Cenário: cadastro com dados variados
-|Nome   | Sobrenome | País    | Endereço            | Cidade         | CEP        | Telefone     | Email                     |
-| Lucas | Andrade   | Brasil  | Rua das Flores, 123 | São Paulo      | 01234-567  | 11912345678  | lucas.andrade@email.com   |
+Quando preencho os campos obrigatórios com os seguintes dados:
+
+| Nome  | Sobrenome | País    | Endereço            | Cidade         | CEP        | Telefone     | Email                     |
+| Lucas | Andrade   | Brasil  | Rua das Flores, 123 | São Paulo      | 01234-567  | 11912345678  | lucas.andrade@email.com   | 
 | Ana   | Silva     | Brasil  | Av. Central, 456    | Rio de Janeiro | 23456-789  | 21987654321  | ana.silva@email.com       |
